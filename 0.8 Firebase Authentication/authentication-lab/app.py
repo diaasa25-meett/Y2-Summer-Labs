@@ -40,6 +40,11 @@ def menu():
     if request.method == 'GET':
         return render_template("menu.html")
 
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST':
+        return render_template("feedback.html")
+
 @app.route('/easy', methods=['GET', 'POST'])
 def easy():
     if request.method == 'GET':
@@ -62,27 +67,18 @@ def signup():
     else:
         return render_template("signup.html")
 
-@app.route('/medium', methods=['GET', 'POST'])
-def medium():
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
     if request.method == 'GET':
-        return render_template("medium.html")
 
-@app.route('/hard', methods=['GET', 'POST'])
-def hard():
-    if request.method == 'GET':
-        return render_template("hard.html")
-
-
-@app.route('/thanks', methods=['GET', 'POST'])
-def thanks():
-    return render_template("thanks.html")
+        return render_template("feedback.html")
 
 @app.route('/submit', methods=['GET','POST'])
 def submit():
     db.child('users').child(login_session['user']['localId']).set({"score":100})
     UID=login_session['user']['localId']
     user=db.child("users").child(UID).get().val()
-    return render_template(".html")
+    return render_template("youwon.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

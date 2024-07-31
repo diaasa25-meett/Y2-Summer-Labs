@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body>
+    <header class="header">
+        <img class="logo" width="150px" src="{{url_for('static', filename='kibo-meet-logo.jpg')}}">
+        <nav class="nav_bar">
+            <a href="/"><li>Home</li></a>
+            <a href="/feedback"><li>Feedback</li></a>
+            <a href="/about"><li>About</li></a>
+            <a href="/newsletter"><li>Get Newsletter</li></a>
+            <a href="/school_application"><li>Apply as school</li></a>
+
+        </nav>
+       <div class="dropdown">
+            <a href="/login"><button class="login_button dropbtn">Login</button></a> 
+           <div class="dropdown-content">
+                <form action="/" method="POST">
+                    <button type="submit" name="submit">Sign Out</button>
+                </form>
+            </div> 
+      
+    </header>
+    <h1>Feedbacks of Other Stakeholders</h1>
+    <div>
+        {% for i in feedback_dict %}
+            <div class="feedback-box">
+                <h2><strong style="color: #FF0000;">{{ feedback_dict[i]['name'] }}</strong></h2>
+                {% for j in feedback_dict[i] %}
+                    {% if j != 'name' %}
+                        <p><strong>{{ j|title }}:</strong> {{ feedback_dict[i][j] }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="feedback-box">
+                <p>No feedbacks found.</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="button-container">
+        <a href="/" class='switch'>Go back to home page</a>
+    </div>
+</body>
+</html>

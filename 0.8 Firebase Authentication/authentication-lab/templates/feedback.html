@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}} ">
+    <title>Feedback Form</title>
+
+ 
+</head>
+<body>
+    <header class="header">
+        <img class="logo" width="150px" src="{{url_for('static', filename='kibo-meet-logo.jpg')}}">
+        <nav class="nav_bar">
+            <a href="/feedback"><li>Home</li></a>
+            <a href="/about"><li>About</li></a>
+            <a href="/newsletter"><li>Get Newsletter</li></a>
+            <a href="/school_application"><li>Apply as school</li></a>
+
+        </nav>
+       <div class="dropdown">
+            <a href="/login"><button class="login_button dropbtn">Login</button></a> 
+           <div class="dropdown-content">
+                <form action="/" method="POST">
+                    <button type="submit" name="submit">Sign Out</button>
+                </form>
+            </div> 
+    </header>
+    <center>
+    <div class="form-container">
+        <img class="form-bg" src="{{url_for('static', filename='kibo-meet-logo.jpg')}}">
+        <div class="input_fields_container">
+            <form method="POST" action="/feedback">
+                <label for='email'>Email</label>
+                <input class="email-r" type="text" name="email" placeholder="Email"><br><br>
+                <label for='school_name'>Name </label>
+                <input class="school-r" type="text" name="name" placeholder="name"><br><br>
+                <label for='Location'>feedback</label>
+                <input class="location-r" type="text" name="feedback" placeholder="feedback"><br><br>
+                <button class="apply-r"method="POST">Submit</button><br>
+            </form>
+        <h1>{{ e }}</h1>
+        </div>
+    </div>
+    </center>
+</body>
+</html>

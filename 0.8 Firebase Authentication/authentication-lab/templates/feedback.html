@@ -6,14 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}} ">
     <title>Feedback Form</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+        font-family: Poppins;
+}
 
- 
+body{
+        margin: 0 ;
+        padding: 0;
+}
+
+.main_body{
+        width:100%;
+}
+
+.header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10%;
+        background-color: #9A4D91;
+        margin: 0 ;
+        padding: 0;
+}
+
+.logo{
+        position: relative;
+        bottom: 3px;
+        cursor: pointer;
+        padding: 5px;
+        padding-bottom: 10      px;
+}
+
+.nav_bar{
+        list-style: none;
+}
+
+.nav_bar li{
+        position: relative;
+        right: 40px;
+        display: inline-block;
+        padding: 0px 20px;
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+}
+
+.login_button{
+        padding:;
+        margin-right: 10px;
+        background-color: #FF1515;
+        border: none;
+        width: 110px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.5s ease 0s;
+        color: white ;
+}
+
+.email-r{
+   border-radius: 25px;
+  border: 2px solid #9932CC;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+}
+
+.school-r{
+  border-radius: 25px;
+  border: 2px solid #9932CC;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+}
+
+.location-r{
+  border-radius: 25px;
+  border: 2px solid #9932CC;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+}
+
+.apply-r{
+  display: flex;               
+  justify-content: center;     
+  align-items: center;        
+  padding: 10px 20px;          
+  font-size: 16px;            
+  border: none;                
+  background-color: #9932CC;   
+  color: white;            
+  cursor: pointer;           
+  border-radius: 5px;  
+}
+
+.input_fields_container{
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background: #FFFAF0;
+  border: 2px solid #9932CC;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 23px;
+  width: 400px;
+}
+
+.form-bg{
+  opacity: 0.4; 
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-inner img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+
+.home-image2{
+        height: 10%;
+}
+
+.home-image3{
+        height: 70%;
+}
+
+
+</style>
 </head>
 <body>
     <header class="header">
         <img class="logo" width="150px" src="{{url_for('static', filename='kibo-meet-logo.jpg')}}">
         <nav class="nav_bar">
-            <a href="/feedback"><li>Home</li></a>
+            <a href="/"><li>Home</li></a>
             <a href="/about"><li>About</li></a>
             <a href="/newsletter"><li>Get Newsletter</li></a>
             <a href="/school_application"><li>Apply as school</li></a>

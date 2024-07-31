@@ -3,7 +3,73 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e6ff; /* Light purple background for the entire page */
+            min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+        }
+
+        h1 {
+            text-align: center;
+            color: #9A4D91;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        .feedback-box {
+            background-color: rgba(255, 21, 21, 0.1); /* Faded red background */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .feedback-box h2 {
+            color: #FF0000; /* Red color for headings */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feedback-box p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            margin-top: auto; /* Push the button to the bottom */
+            text-align: center; /* Center the button horizontally */
+            padding: 20px 0; /* Add some padding */
+        }
+
+        .switch {
+            display: inline-block;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #9A4D91;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+
+        .switch:hover {
+            background-color: #7a3e6c; /* Darker shade on hover */
+        }
+
+    </style>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}">
+</head>
 <body>
     <header class="header">
         <img class="logo" width="150px" src="{{url_for('static', filename='kibo-meet-logo.jpg')}}">
@@ -24,7 +90,7 @@
             </div> 
       
     </header>
-    <h1>Feedbacks of Other Stakeholders</h1>
+    <h1>Feedbacks of Other's</h1>
     <div>
         {% for i in feedback_dict %}
             <div class="feedback-box">

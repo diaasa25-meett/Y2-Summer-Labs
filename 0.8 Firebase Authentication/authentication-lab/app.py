@@ -42,8 +42,7 @@ def menu():
 
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
-    if request.method == 'POST':
-        return render_template("feedback.html")
+    return render_template("feedback.html")
 
 @app.route('/easy', methods=['GET', 'POST'])
 def easy():
@@ -67,11 +66,12 @@ def signup():
     else:
         return render_template("signup.html")
 
-@app.route('/feedback', methods=['GET', 'POST'])
-def feedback():
-    if request.method == 'GET':
+@app.route('/display', methods=['GET', 'POST'])
+def display():
+    return render_template("dispalyfeedback.html")
 
-        return render_template("feedback.html")
+
+
 
 @app.route('/submit', methods=['GET','POST'])
 def submit():
@@ -79,6 +79,9 @@ def submit():
     UID=login_session['user']['localId']
     user=db.child("users").child(UID).get().val()
     return render_template("youwon.html")
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
